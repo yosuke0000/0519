@@ -50,6 +50,11 @@
         const geometry1 = new THREE.BoxGeometry(50, 50, 50);
         const material1 = new THREE.MeshStandardMaterial({ color: 0x00ffff });
 
+        const group2 = new THREE.Group();
+        scene.add(group1);
+        const geometry2 = new THREE.BoxGeometry(50, 50, 50);
+        const material2 = new THREE.MeshStandardMaterial({ color: 0xff0000 });
+
         for (let i = 0; i < 1000; i++) {
           const mesh = new THREE.Mesh(geometry, material);
           mesh.position.x = (Math.random() - 0.5) * 2000;
@@ -74,6 +79,18 @@
           group1.add(mesh1);
         }
 
+        for (let i = 0; i < 1000; i++) {
+          const mesh1 = new THREE.Mesh(geometry2, material2);
+          mesh2.position.x = (Math.random() - 0.5) * 2000;
+          mesh2.position.y = (Math.random() - 0.5) * 2000;
+          mesh2.position.z = (Math.random() - 0.5) * 2000;
+          mesh2.rotation.x = Math.random() * 2 * Math.PI;
+          mesh2.rotation.y = Math.random() * 2 * Math.PI;
+          mesh2.rotation.z = Math.random() * 2 * Math.PI;
+          // グループに格納する
+          group2.add(mesh2);
+        }
+
      
       　 // 光源（環境光）
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
@@ -93,6 +110,7 @@
           // レンダリング
           group.rotateY(0.01);
           group1.rotateX(0.01);
+          group2.rotateZ(0.01);
           renderer.render(scene, camera);
           requestAnimationFrame(tick);
         }

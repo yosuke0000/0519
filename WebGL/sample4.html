@@ -43,19 +43,14 @@
         const group = new THREE.Group();
         scene.add(group);
         const geometry = new THREE.BoxGeometry(50, 50, 50);
-        const material = new THREE.MeshStandardMaterial();
+        const material = new THREE.MeshStandardMaterial({ color: 0xff0000 }));
 
         const group1 = new THREE.Group();
         scene.add(group1);
         const geometry1 = new THREE.BoxGeometry(50, 50, 50);
         const material1 = new THREE.MeshStandardMaterial({ color: 0x00ffff });
 
-        const group2 = new THREE.Group();
-        scene.add(group2);
-        const geometry2 = new THREE.BoxGeometry(50, 50, 50);
-        const material2 = new THREE.MeshStandardMaterial({ color: 0xff0000 });
-
-        for (let i = 0; i < 500; i++) {
+        for (let i = 0; i < 750; i++) {
           const mesh = new THREE.Mesh(geometry, material);
           mesh.position.x = (Math.random() - 0.5) * 2000;
           mesh.position.y = (Math.random() - 0.5) * 2000;
@@ -67,7 +62,7 @@
           group.add(mesh);
         }
 
-        for (let i = 0; i < 500; i++) {
+        for (let i = 0; i < 750; i++) {
           const mesh1 = new THREE.Mesh(geometry1, material1);
           mesh1.position.x = (Math.random() - 0.5) * 2000;
           mesh1.position.y = (Math.random() - 0.5) * 2000;
@@ -77,18 +72,6 @@
           mesh1.rotation.z = Math.random() * 2 * Math.PI;
           // グループに格納する
           group1.add(mesh1);
-        }
-
-        for (let i = 0; i < 500; i++) {
-          const mesh1 = new THREE.Mesh(geometry2, material2);
-          mesh2.position.x = (Math.random() - 0.5) * 2000;
-          mesh2.position.y = (Math.random() - 0.5) * 2000;
-          mesh2.position.z = (Math.random() - 0.5) * 2000;
-          mesh2.rotation.x = Math.random() * 2 * Math.PI;
-          mesh2.rotation.y = Math.random() * 2 * Math.PI;
-          mesh2.rotation.z = Math.random() * 2 * Math.PI;
-          // グループに格納する
-          group2.add(mesh2);
         }
 
      
@@ -110,7 +93,6 @@
           // レンダリング
           group.rotateY(0.01);
           group1.rotateX(0.01);
-          group2.rotatez(0.01);
           renderer.render(scene, camera);
           requestAnimationFrame(tick);
         }

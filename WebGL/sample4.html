@@ -43,8 +43,12 @@
         const group = new THREE.Group();
         scene.add(group);
         const geometry = new THREE.BoxGeometry(50, 50, 50);
-        //const geometry = new THREE.BoxBufferGeometry(50, 50, 50);
         const material = new THREE.MeshStandardMaterial();
+
+        const group1 = new THREE.Group();
+        scene.add(group1);
+        const geometry1 = new THREE.BoxGeometry(50, 50, 50);
+        const material1 = new THREE.MeshStandardMaterial();
 
         for (let i = 0; i < 1000; i++) {
           const mesh = new THREE.Mesh(geometry, material);
@@ -56,6 +60,18 @@
           mesh.rotation.z = Math.random() * 2 * Math.PI;
           // グループに格納する
           group.add(mesh);
+        }
+
+        for (let i = 0; i < 1000; i++) {
+          const mesh1 = new THREE.Mesh(geometry1, material1);
+          mesh1.position.x = (Math.random() - 0.5) * 2000;
+          mesh1.position.y = (Math.random() - 0.5) * 2000;
+          mesh1.position.z = (Math.random() - 0.5) * 2000;
+          mesh1.rotation.x = Math.random() * 2 * Math.PI;
+          mesh1.rotation.y = Math.random() * 2 * Math.PI;
+          mesh1.rotation.z = Math.random() * 2 * Math.PI;
+          // グループに格納する
+          group1.add(mesh1);
         }
 
      
@@ -76,6 +92,7 @@
         function tick() {
           // レンダリング
           group.rotateY(0.01);
+          group1.rotateX(0.01);
           renderer.render(scene, camera);
           requestAnimationFrame(tick);
         }

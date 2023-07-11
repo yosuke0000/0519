@@ -55,7 +55,7 @@
         const geometry2 = new THREE.BoxGeometry(50, 50, 50);
         const material2 = new THREE.MeshStandardMaterial({ color: 0xff0000 });
 
-        for (let i = 0; i < 1000; i++) {
+        for (let i = 0; i < 500; i++) {
           const mesh = new THREE.Mesh(geometry, material);
           mesh.position.x = (Math.random() - 0.5) * 2000;
           mesh.position.y = (Math.random() - 0.5) * 2000;
@@ -67,7 +67,7 @@
           group.add(mesh);
         }
 
-        for (let i = 0; i < 1000; i++) {
+        for (let i = 0; i < 500; i++) {
           const mesh1 = new THREE.Mesh(geometry1, material1);
           mesh1.position.x = (Math.random() - 0.5) * 2000;
           mesh1.position.y = (Math.random() - 0.5) * 2000;
@@ -79,7 +79,7 @@
           group1.add(mesh1);
         }
 
-        for (let i = 0; i < 1000; i++) {
+        for (let i = 0; i < 500; i++) {
           const mesh1 = new THREE.Mesh(geometry2, material2);
           mesh2.position.x = (Math.random() - 0.5) * 2000;
           mesh2.position.y = (Math.random() - 0.5) * 2000;
